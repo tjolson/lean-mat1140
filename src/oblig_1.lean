@@ -1,4 +1,11 @@
- -- **MAT1140 Strukturer og argumenter - Høst 2021 Oblig 1, formalized in Lean** --
+/- 
+# MAT1140 Strukturer og argumenter - Høst 2021 Oblig 1, formalized in Lean
+Comments and suggestions for improvement are welcome at torgero@math.uio.no 
+
+Useful resource: 
+- https://leanprover-community.github.io/mathlib_docs/data/set/basic.html
+
+-/
 
 import tactic
 import data.set
@@ -37,9 +44,8 @@ could have simulated this by declaring a new type α and letting A, B and U be o
 introducing hypotheses of type `A ⊆ U` and `B ⊆ U`, but the logic behind a solution would be the same 
 and we can still access U as a "set" with `univ`. One downside is that we can no longer define the map 
 Φ in the problem with codomain 𝒫(A) × 𝒫(B), since functions (avbildninger) in Lean always go between
-types and we still want to think of the elements of 𝒫(A) as subsets of A (which are subsets of U). By
-spelling out for Lean what sujectivity and injectivity mean for *this problem* we still reason the way 
-we would naturally. -/
+types and we still want to think of the elements of 𝒫(A) as subsets of A (which are subsets of U). 
+Without Φ, I modified the problem using what surjectivity and injectivity would mean in context. -/
 example : (∀ (C D : set U), C ⊆ A ∧ D ⊆ B → ∃ (V : set U), (C, D) =  (V ∩ A, V ∩ B)) → (A ∩ B = ∅) :=
 begin
   sorry
@@ -84,12 +90,13 @@ begin
 end
 
 /-Oppgave 3.ii -/
-/-Here we see a less trivial difference in doing mathematics on paper and in a computer. Lean would
+/-Here we see a less trivial difference in doing mathemetics on paper and in a computer. Lean would
 seem to prefer functions being defined explicitly. It does manage, though I'm not quite yet sure how
 it works. Note also that in this problem and 4.ii we have to invoke choice. -/
+variable (c : C) -- using to insist to Lean that C is nonempty, as in the problem.
+include c
 local attribute [instance] prop_decidable
--- Including `(c : C)` to instist that C is not empty, as in the problem. 
-example (c : C) (t : ∀ (x x' : A), f x = f x' → g x = g x') : ∃ u : B → C, g = u ∘ f :=
+example (t : ∀ (x x' : A), f x = f x' → g x = g x') : ∃ u : B → C, g = u ∘ f :=
 begin
   sorry
 end
