@@ -1,5 +1,7 @@
 # MAT1140 in Lean
 Exercises and assignments from MAT1140 Strukturer og argumenter, formalized in Lean. 
+Currently this includes:
+- Oblig 1 with solutions
 
 ## Get a copy
 First install [Lean 3](https://leanprover-community.github.io/get_started.html), VSCode and the Lean extension for VSCode. 
