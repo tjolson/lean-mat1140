@@ -1,6 +1,10 @@
 /- 
-# MAT1140 Strukturer og argumenter - Høst 2021 Oblig 1, formalized in Lean (with solutions)
+# MAT1140 Strukturer og argumenter - Høst 2021 Oblig 1, formalized in Lean
 Comments and suggestions for improvement are welcome at torgero@math.uio.no 
+
+Useful resource: 
+- https://leanprover-community.github.io/mathlib_docs/data/set/basic.html
+
 -/
 
 import tactic
